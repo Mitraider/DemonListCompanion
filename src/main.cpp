@@ -7,11 +7,13 @@ class $modify(CompanionPlayLayer, PlayLayer) {
     void levelComplete() {
         PlayLayer::levelComplete();
 
-        auto level = PlayLayer::get()->m_level;
+        auto level = this->m_level;
         std::string lvName = level->m_levelName;
         std::string lvCreator = level->m_creatorName;
 
         FLAlertLayer::create("Level complete", "You completed "+ lvName +" by "+ lvCreator+ "! gg", "Nice")->show();
+
+        log::info("The completed level's ID is {}", level->m_levelID);
     }
 };
 
